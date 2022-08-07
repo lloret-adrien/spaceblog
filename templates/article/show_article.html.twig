@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article: {{ article.title }}{% endblock %}
+
+{% block body %}
+<a href="/" class="back">Retour</a>
+<div class="article-container">
+  <div class="article-content">
+    <div>
+      <a href="{{ path('edit_article', {'id': article.id}) }}">Modifier</a>
+      -
+      <a href="{{ path('delete_article', {'id': article.id}) }}">Supprimer</a>
+    </div>
+    <h2>{{ article.title }}</h2>
+    <code>{{ article.content|raw }}</code>
+    <span>Publié le {{ article.getDateCreated()|date('d/m/Y') }} à  {{ article.getDateCreated()|date('H:m') }}</span>
+  </div>
+</div>
+{% endblock %}

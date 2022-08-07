@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<div class="discover" style="background-image: url(./avion.png)">
+  <div class="text-discover">
+    <p>Découvrez <span>l'espace<span></p>
+    <p>comme jamais</p>
+    <p>auparavant</p>
+  </div>
+</div>
+
+<section class="articles-section">
+  <h1>Nos Articles</h1>
+  <a id="create" href="{{ path('create_article') }}">Ajouter un article</a>
+  {% if articles %}
+    <div class="articles-container">
+      {% for article in articles %}
+        <a href="{{ path('show_article', {'id': article.id}) }}" class="article">
+          <div class="article-image" style="background-image: url('./avion.png')"/>
+          </div>
+          <h2>{{ article.title }}</h2>
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel article{% endblock %}
+
+{% block body %}
+<a href="/" class="back">Retour</a>
+{{ form_start(form) }}
+{{ form_widget(form.title) }}
+{{ form_widget(form.content) }}
+{{ form_widget(form.save, {label: 'Valider'}) }}
+{{ form_end(form) }}
+{% endblock %}
